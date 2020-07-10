@@ -1,0 +1,108 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+::before,
+::after {
+  box-sizing: border-box;
+}
+ul {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  /* 居中 */
+  transform: translate(-50%, -50%);
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+ul li {
+  list-style: none;
+  width: 80px;
+  height: 80px;
+  background: #262626;
+  margin: 0 10px;
+  border-radius: 50%;
+  transition: 0.5s;
+}
+
+/* 鼠标移入时修改li的背景颜色 */
+ul li:hover {
+  background: #0070ff;
+}
+
+ul li span {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border: 4px solid #fff;
+  transition: 0.5s;
+  /* overflow: hidden; */
+}
+
+/* 右箭头 */
+ul li.next span {
+  top: 50%;
+  right: 20%;
+  /* 旋转45度 */
+  transform: translateY(-50%) rotate(-45deg);
+  /* 隐藏左边框和上边框 形成一个箭头的样子 */
+  border-left: none;
+  border-top: none;
+}
+/* 当鼠标移入时将箭头稍稍向右移动 */
+ul li.next:hover span {
+  right: 16%;
+}
+/* span的before充当箭尾 */
+ul li.next span::before {
+  content: "";
+  position: absolute;
+  /* 通过margin: -4px调整箭尾头部超出部分 */
+  margin: -4px;
+  width: 38px;
+  height: 4px;
+  background: #fff;
+  /* 箭尾从右边开始向左边出来 */
+  transform-origin: right;
+  /* scaleX(0)就是隐藏箭尾 */
+  transform: rotate(45deg) translate(0, 25px) scaleX(0);
+  transition: 0.5s;
+}
+/* 当鼠标移入时将箭尾移出 */
+ul li.next:hover span::before {
+  /* scaleX(1)就是显示箭尾 */
+  transform: rotate(45deg) translate(0, 25px) scaleX(1);
+}
+
+/* 左箭头 */
+ul li.prev span {
+  top: 50%;
+  left: 20%;
+  transform: translateY(-50%) rotate(135deg);
+  border-left: none;
+  border-top: none;
+}
+
+ul li.prev:hover span {
+  left: 16%;
+}
+
+ul li.prev span::before {
+  content: "";
+  position: absolute;
+  margin: -4px;
+  width: 38px;
+  height: 4px;
+  background: #fff;
+  transform-origin: right;
+  transform: rotate(45deg) translate(0, 25px) scaleX(0);
+  transition: 0.5s;
+}
+
+ul li.prev:hover span::before {
+  transform: rotate(45deg) translate(0, 25px) scaleX(1);
+}
