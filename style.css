@@ -100,6 +100,7 @@ ul li.prev span::before {
   background: #fff;
   transform-origin: right;
   transform: rotate(45deg) translate(0, 25px) scaleX(0);
+  /* 花费时间0.5s完成改变 */
   transition: 0.5s;
 }
 
