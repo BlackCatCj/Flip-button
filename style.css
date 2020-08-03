@@ -82,6 +82,7 @@ ul li.next:hover span::before {
 ul li.prev span {
   top: 50%;
   left: 20%;
+  /* rotate(135deg) 角度旋转  */
   transform: translateY(-50%) rotate(135deg);
   border-left: none;
   border-top: none;
